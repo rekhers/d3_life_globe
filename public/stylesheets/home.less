@@ -1,0 +1,50 @@
+
+
+body, html, #container{
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+	display: flex;
+	
+	#globeDiv{
+		width: 100%;   
+
+		svg{	
+			.water{
+				fill: steelblue;
+			}
+
+
+			.land{
+				stroke: #FFF;
+				stroke-width: .7;
+				fill:green;
+			}
+		}
+
+	}
+
+	#listDiv{
+		width: 55%;
+		display: flex;
+		flex-direction: column;
+
+		div{	
+			cursor:pointer;
+			font-size: 25px;
+			padding-top: 3%;
+			padding-left: 2%;
+			color: steelblue;
+			height: 20%;
+			border-bottom: 2px solid steelblue;
+			font-family: 'Roboto', sans-serif;
+
+
+			&:hover{
+				background-color: gainsboro;
+			}
+
+		}
+	}
+}
+	

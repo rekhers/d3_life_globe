@@ -1,5 +1,5 @@
 {
-  "name": "d3-angular-globe",
+  "name": "d3-life-globe",
   "version": "0.0.1",
   "description": "full stack app built with d3, angular, mongo ",
   "main": "server.js",
@@ -12,7 +12,6 @@
   "dependencies": {
     "ejs": "*",
     "express": "*",
-    "socket.io": "*",
 
       },
   "devDependencies": {
