@@ -9,6 +9,8 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
@@ -17,17 +19,25 @@
 <link href="public/stylesheets/home.css" type="text/css" rel="stylesheet" />
 
 
+
+
 <div id="container">
 
 <div id="globeDiv"> </div>
 
-<div data-ng-app="list" data-ng-controller="listController" id="listDiv"> 
-	<div class="Raleigh"> RALEIGH </div>
-	<div class="Austin"> AUSTIN </div>
-	<div class="Amherst"> AMHERST </div>
-	<div class="London"> LONDON </div>
-	<div class="Seattle"> SEATTLE </div>
-	<div class="Washington"> WASHINGTON, D.C. </div>
+<div id="listDiv"> 
+	<div data-id="Raleigh"> RALEIGH <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+</div>
+	<div data-id="Austin"> AUSTIN <i class="fa fa-child" aria-hidden="true"></i>
+</div>
+	<div data-id="Amherst"> AMHERST <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+</div>
+	<div data-id="London"> LONDON <i class="fa fa-beer" aria-hidden="true"></i>
+</div>
+	<div data-id="Seattle"> SEATTLE <i class="fa fa-tint" aria-hidden="true"></i>
+</div>
+	<div data-id="Washington"> WASHINGTON, D.C. <i class="fa fa-signal" aria-hidden="true"></i>
+</div>
 </div>
 
 

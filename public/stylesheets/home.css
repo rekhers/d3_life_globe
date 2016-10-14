@@ -10,6 +10,7 @@ body #globeDiv,
 html #globeDiv,
 #container #globeDiv {
   width: 100%;
+  height: 90%;
 }
 body #globeDiv svg .water,
 html #globeDiv svg .water,
@@ -34,7 +35,7 @@ body #listDiv div,
 html #listDiv div,
 #container #listDiv div {
   cursor: pointer;
-  font-size: 25px;
+  font-size: 200%;
   padding-top: 3%;
   padding-left: 2%;
   color: steelblue;

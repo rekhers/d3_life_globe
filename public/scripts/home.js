@@ -1,18 +1,15 @@
 $(document).ready(function(){
-    globe();
+    buildGlobe();
 });
 
 
-function globe(){
+function buildGlobe(){
 
-    var start = Date.now(),
-        speed = 1e-2;
-
-    click_count = 0;
-
-    var width = 600,
-    height = 500;
-    var projection = d3.geo.orthographic()
+  var start = Date.now(),
+      speed = 1e-2,
+      width = 600,
+      height = 500,
+      projection = d3.geo.orthographic()
                         .scale(245)
                         .rotate([0,0])
                         .rotate([75, -20])
@@ -20,21 +17,15 @@ function globe(){
                         .clipAngle(90)
                         .precision(.5);
     
-    // projection.center([-97.767, 30.267]);
-
-
 var path = d3.geo.path()
             .projection(projection);
 
-
-var sphere = {type: "Sphere"};
-
 var svg = d3.select("#globeDiv")
             .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            // .attr("viewBox", "0 0 600 500")
-            // .attr("preserveAspectRatio", "xMinYMin meet");
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", "0 0 600 500")
+            .attr("preserveAspectRatio", "xMinYMin meet");
 
 queue()
     .defer(d3.json, "https://raw.githubusercontent.com/rekhers/d3_maps/gh-pages/data/world-110m2.json")
@@ -97,33 +88,50 @@ function ready(error, world, names, cities){
                     .attr("d", path);
 
 
- //how we're going to add points 
+  
+
+    $("#listDiv div").hover(function() {
+
+    var currCity = $(this).attr('data-id');
+        console.log(currCity);
+
+        console.log("ey");
+
+
+    //for London
+    var UK = _.findWhere(countriesWithNames, {name: "United Kingdom"});
+    //for all the rest 
+    var US = _.findWhere(countriesWithNames, {name: "United States"});
+
+
+    console.log("city coords");
+    console.log(cityCoords);
+
+
+    $(".points").remove();
+
+    if(currCity != "London"){
+      var p = d3.geo.centroid(US);
+    } else{
+      var p = d3.geo.centroid(UK);
+    }
+
+
+
+     //how we're going to add points 
   svg.insert("path")
-    .datum({type: "Point", coordinates: [amherst.geometry.coordinates[0], amherst.geometry.coordinates[1]]})
+    .datum({type: "Point", coordinates: [cityCoords[currCity].geometry.coordinates[0], cityCoords[currCity].geometry.coordinates[1]]})
     .attr("class", "points")
     .attr("d", path)
     .style("fill", "red")
     .attr("stroke-width", 25);
 
-  
-
-    d3.select("#listDiv").on("mouseover", function() {
-    var US = _.findWhere(countriesWithNames, {name: "United States"});
-    var UK = _.findWhere(countriesWithNames, {name: "United Kingdom"});
-
-      var rotate = projection.rotate(),
-      p = d3.geo.centroid(UK);
-
-      // p = d3.geo.centroid([20, 20]);
-      console.log(UK);
-
-      svg.selectAll(".focused").classed("focused", focused = false);
+    var rotate = projection.rotate();
 
     //Globe rotating
-
     (function transition() {
       d3.transition()
-      .duration(3000)
+      .duration(1000)
       .tween("rotate", function() {
         var r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
         return function(t) {
