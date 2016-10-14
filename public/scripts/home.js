@@ -56,7 +56,7 @@ function ready(error, world, names, cities){
     *   City Master List
     *
     */
-    var cityList = ["Raleigh", "Austin", "London", "Seattle", "Washington"];
+    var cityList = ["Raleigh", "Austin", "London", "Paris", "Amsterdam", "Vancouver", "Brussels", "Seattle", "Hyderabad", "Washington"];
     var cityCoords = {"Amherst": {}};
 
     //we need to add amherst manually :)
@@ -68,18 +68,18 @@ function ready(error, world, names, cities){
         cityCoords[cityList[z]] = _.findWhere(cities.features, {id: cityList[z]});
     }
 
-
+    console.log(cityCoords)
     console.log(cityCoords);
 
 
-    //draw water
+  //draw water
  var water = svg.append("path")
                   .datum({type: "Sphere"})
                   .attr("class", "water")
                   .attr("d", path);
 
 
-    //draw countries
+  //draw countries
  var land = svg.selectAll("path.land")
                     .data(countries)
                     .enter()
@@ -90,12 +90,10 @@ function ready(error, world, names, cities){
 
   
 
-    $("#listDiv div").hover(function() {
+$("#listDiv div").hover(function() {
 
     var currCity = $(this).attr('data-id');
         console.log(currCity);
-
-        console.log("ey");
 
 
     //for London
@@ -103,22 +101,27 @@ function ready(error, world, names, cities){
     //for all the rest 
     var US = _.findWhere(countriesWithNames, {name: "United States"});
 
+    var india = _.findWhere(countriesWithNames, {name: "India"});
 
-    console.log("city coords");
-    console.log(cityCoords);
+    var france = _.findWhere(countriesWithNames, {name: "France"});
+
 
 
     $(".points").remove();
 
-    if(currCity != "London"){
-      var p = d3.geo.centroid(US);
-    } else{
+    if (currCity == "Hyderabad"){
+      var p = d3.geo.centroid(india);
+    } else if(currCity == "Paris"){
+      var p = d3.geo.centroid(france);
+    }else if(currCity == "London"){
       var p = d3.geo.centroid(UK);
+    } else {
+      var p = d3.geo.centroid(US);
     }
 
 
 
-     //how we're going to add points 
+ //how we're going to add points 
   svg.insert("path")
     .datum({type: "Point", coordinates: [cityCoords[currCity].geometry.coordinates[0], cityCoords[currCity].geometry.coordinates[1]]})
     .attr("class", "points")
@@ -131,7 +134,7 @@ function ready(error, world, names, cities){
     //Globe rotating
     (function transition() {
       d3.transition()
-      .duration(1000)
+      .duration(2000)
       .tween("rotate", function() {
         var r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
         return function(t) {
