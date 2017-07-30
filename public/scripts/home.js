@@ -35,10 +35,11 @@ queue()
 
 
 
+
 function ready(error, world, names, cities){
 
 
-    var countries = topojson.feature(world, world.objects.countries).features,
+var countries = topojson.feature(world, world.objects.countries).features,
         neighbors = topojson.neighbors(world.objects.countries.geometries);
 
 
@@ -56,7 +57,7 @@ function ready(error, world, names, cities){
     *   City Master List
     *
     */
-    var cityList = ["Raleigh", "Austin", "London", "Paris", "Amsterdam", "Vancouver", "Brussels", "Seattle", "Hyderabad", "Washington"];
+    var cityList = ["Raleigh", "Austin", "London",  "Seattle", "Washington"];
     var cityCoords = {"Amherst": {}};
 
     //we need to add amherst manually :)
@@ -92,8 +93,12 @@ function ready(error, world, names, cities){
 
 $("#listDiv div").hover(function() {
 
+    if(currCity){
+    var lastCity = currCity;
+    console.log(currCity);
+  }
     var currCity = $(this).attr('data-id');
-        console.log(currCity);
+     console.log(currCity);
 
 
     //for London
@@ -129,6 +134,17 @@ $("#listDiv div").hover(function() {
     .style("fill", "red")
     .attr("stroke-width", 25);
 
+
+if(lastCity){
+
+    svg.insert("path")
+    .datum({type: "Point", coordinates: [cityCoords[lastCity].geometry.coordinates[0], cityCoords[lastCity].geometry.coordinates[1]]})
+    .attr("class", "points")
+    .attr("d", path)
+    .style("fill", "red")
+    .attr("stroke-width", 25);
+
+}
     var rotate = projection.rotate();
 
     //Globe rotating
