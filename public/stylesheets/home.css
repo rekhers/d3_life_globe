@@ -9,8 +9,8 @@ html,
 body #globeDiv,
 html #globeDiv,
 #container #globeDiv {
-  width: 100%;
-  height: 90%;
+  width: 90%;
+  height: 85%;
 }
 body #globeDiv svg .water,
 html #globeDiv svg .water,
@@ -24,23 +24,31 @@ html #globeDiv svg .land,
   stroke-width: .7;
   fill: #222;
 }
+body #globeDiv .route,
+html #globeDiv .route,
+#container #globeDiv .route {
+  stroke: #FFF;
+  stroke-width: 2;
+  fill: green;
+}
 body #listDiv,
 html #listDiv,
 #container #listDiv {
-  width: 55%;
+  width: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-item: center;
 }
 body #listDiv div,
 html #listDiv div,
 #container #listDiv div {
   cursor: pointer;
-  font-size: 200%;
+  font-size: 2.5rem;
   padding-top: 3%;
   padding-left: 2%;
   color: #FFF;
   height: 20%;
-  border-bottom: 2px solid #FFF;
   font-family: 'Roboto', sans-serif;
 }
 body #listDiv div:hover,

@@ -7,8 +7,8 @@ body, html, #container{
 	display: flex;
 
 	#globeDiv{
-		width: 100%; 
-		height: 90%;  
+		width: 90%; 
+		height: 85%;  
 
 		svg{	
 
@@ -24,21 +24,27 @@ body, html, #container{
 			}
 		}
 
+		.route{
+			stroke: #FFF;
+			stroke-width: 2;
+			fill: green;
+		}
+
 	}
 
 	#listDiv{
-		width: 55%;
+		width: auto;
 		display: flex;
 		flex-direction: column;
-
+		justify-content: space-around;
+		align-item: center;
 		div{	
 			cursor:pointer;
-			font-size: 200%;
+			font-size: 2.5rem;
 			padding-top: 3%;
 			padding-left: 2%;
 			color: #FFF;
 			height: 20%;
-			border-bottom: 2px solid #FFF;
 			font-family: 'Roboto', sans-serif;
 
 
