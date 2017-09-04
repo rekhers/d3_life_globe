@@ -5,6 +5,7 @@ html,
   height: 100%;
   background: #222;
   display: flex;
+  justify-content: space-around;
 }
 body #globeDiv,
 html #globeDiv,
@@ -27,9 +28,9 @@ html #globeDiv svg .land,
 body #globeDiv .route,
 html #globeDiv .route,
 #container #globeDiv .route {
-  stroke: #FFF;
+  stroke: blue;
   stroke-width: 2;
-  fill: green;
+  fill: blue;
 }
 body #listDiv,
 html #listDiv,
@@ -39,6 +40,7 @@ html #listDiv,
   flex-direction: column;
   justify-content: space-around;
   align-item: center;
+  color: #FFF;
 }
 body #listDiv div,
 html #listDiv div,
@@ -54,5 +56,5 @@ html #listDiv div,
 body #listDiv div:hover,
 html #listDiv div:hover,
 #container #listDiv div:hover {
-  background: linear-gradient(to right, #0865F1 0%, #C704F6 100%);
+  background-color: purple;
 }
