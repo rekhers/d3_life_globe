@@ -1,62 +1,54 @@
+body,
+html,
+#container {
+  width: 100%;
+  height: 100%;
+  background: #222;
+  display: flex;
+  justify-content: space-around;
 
+  #globeDiv {
+    width: 90%;
+    height: 85%;
 
-body, html, #container{
-	width: 100%;
-	height: 100%;
-	background:#222;
-	display: flex;
-	justify-content: space-around;
+    svg {
+      .water {
+        fill: #fff;
+      }
 
-	#globeDiv{
-		width: 90%; 
-		height: 85%;  
+      .land {
+        stroke: #fff;
+        stroke-width: 0.7;
+        fill: #222;
+      }
+    }
 
-		svg{	
+    .route {
+      stroke: blue;
+      stroke-width: 2;
+      fill: blue;
+    }
+  }
 
-			.water{
-				fill: #FFF;
-			}
+  #listDiv {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-item: center;
+    color: #fff;
+    div {
+      cursor: pointer;
+      font-size: 2.5rem;
+      padding-top: 3%;
+      padding-left: 2%;
+      color: #fff;
+      height: 20%;
+      font-family: "Roboto", sans-serif;
 
-
-			.land{
-				stroke: #FFF;
-				stroke-width: .7;
-				fill:#222;
-			}
-		}
-
-		.route{
-			stroke: blue;
-			stroke-width: 2;
-			fill: blue;
-		}
-
-	}
-
-	#listDiv{
-		width: auto;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-item: center;
-		color:#FFF;
-		div{	
-			cursor:pointer;
-			font-size: 2.5rem;
-			padding-top: 3%;
-			padding-left: 2%;
-			color: #FFF;
-			height: 20%;
-			font-family: 'Roboto', sans-serif;
-
-
-			&:hover{
-				background-color: purple;
-
-
-			}
-
-		}
-	}
+      &:hover {
+        background-color: purple;
+      }
+    }
+  }
 }
-	

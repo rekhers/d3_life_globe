@@ -1,7 +1,7 @@
 {
-  "name": "d3-life-globe",
+  "name": "d3_life_globe",
   "version": "0.0.1",
-  "description": "full stack app built with d3, angular, mongo ",
+  "description": "d3 rotating globe",
   "main": "server.js",
   "engines": {
     "node": "*"
